@@ -43,6 +43,12 @@ export function TRPCProvider(
         httpBatchLink({
           transformer: SuperJSON,
           url: getUrl(),
+          //we can remove if it is cosing 
+          async headers (){
+            const headers =new Headers();
+            headers.set("x-trpc-sorce", "nextjs-react");
+            return headers ;
+          }
         }),
       ],
     }),
